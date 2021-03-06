@@ -204,4 +204,13 @@ bar {
     swaybar_command waybar
 }
 
+#
+# G A P S
+#
+default_border pixel 4
+default_floating_border pixel 4
+gaps inner 10
+gaps outer 10
+smart_gaps on
+
 include /etc/sway/config.d/*
