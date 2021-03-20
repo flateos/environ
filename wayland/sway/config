@@ -23,7 +23,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/unave/unave-5120x2880.png fill
+output * bg /usr/share/backgrounds/flateos/flateos-5120x2880.png fill
 #
 # Example configuration:
 #
