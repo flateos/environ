@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="320" alt="environ logo" src="brand.svg"/>
+  <img alt="environ logo" src="brand.svg"/>
 </div>
 
 <h3 align="center"> WM's presets per environment. </h3>
