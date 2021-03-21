@@ -1,42 +1,42 @@
 /* D E F A U L T */
 * {
-  border: none;
-  border-radius: 0;
-  font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  min-height: 0;
+    border: none;
+    border-radius: 0;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    min-height: 0;
 }
 
 /* B A R */
 window#waybar {
-  color: #ffffff;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-  opacity: 0.5;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    opacity: 0.5;
 }
 
 window#waybar.top {
-  background-color: #16171e;
+    background-color: #16171e;
 }
 
 window#waybar.bottom {
-  background-color: #16171e;
+    background-color: #16171e;
 }
 
 /* W O R K S P A C E */
 #workspaces button {
-  padding: 0px 30px;
-  background-color: transparent;
-  color: #ffffff;
-  border-bottom: 3px solid transparent;
+    padding: 0px 30px;
+    background-color: transparent;
+    color: #ffffff;
+    border-bottom: 3px solid transparent;
 }
 
 #workspaces button.focused {
-  border-bottom-color: #23d18c;
+    border-bottom-color: #00cecb;
 }
 
 #workspaces button:hover {
-  border-bottom-color: #23d18c;
+    border-bottom-color: #00cecb;
 }
 
 /* M O D U L E S */
@@ -51,8 +51,8 @@ window#waybar.bottom {
 #custom-net-up,
 #custom-net-down,
 #custom-pacman {
-  padding: 0 10px;
-  margin: 0 4px;
-  color: #ffffff;
-  background-color: transparent;
+    padding: 0 10px;
+    margin: 0 4px;
+    color: #ffffff;
+    background-color: transparent;
 }

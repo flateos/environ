@@ -1,0 +1,94 @@
+configuration {
+    show-icons: true;
+    fullscreen: false;
+    hide-scrollbar: true;
+    sidebar-mode: false;
+    disable-history: false;
+    display-drun: "";
+    drun-display-format: "{name}";
+}
+
+* {
+    al: #00000000;
+    bg: #0d1117ff;
+    se: #DADBDB15;
+    fg: #FFFFFFff;
+    ac: #00cecbff;
+    font: "Arial 12";
+}
+
+window {
+    transparency: "real";
+    background-color: @bg;
+    text-color: @fg;
+    border: 0px;
+    border-color: @ac;
+    border-radius: 12px;
+    width: 500;
+}
+
+prompt {
+    enabled: true;
+    padding: 0.30% 1% 0% -0.5%;
+    background-color: @al;
+    text-color:	@bg;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    background-color: @ac;
+    text-color: @bg;
+    expand: false;
+    padding: 1.5%;
+}
+
+entry {
+    background-color: @al;
+    text-color: @bg;
+    placeholder-color: @bg;
+    expand: true;
+    horizontal-align: 0;
+    placeholder: "Search";
+    padding: 0.10% 0% 0% 0%;
+    blink: true;
+}
+
+mainbox {
+    background-color: @al;
+    children: [ inputbar, listview ];
+}
+
+
+listview {
+    background-color: @al;
+    columns: 1;
+    lines: 5;
+    spacing: 4;
+    dynamic: true;
+    cycle: false;
+    layout: vertical;
+}
+
+
+element {
+    background-color: @al;
+    text-color: @fg;
+    orientation: horizontal;
+    padding: 10;
+}
+
+element-icon {
+    size: 35;
+}
+
+element-text {
+    expand: true;
+    horizontal-align: 0;
+    vertical-align: 0.5;
+    padding: 0 15;
+}
+
+element selected {
+    background-color: @se;
+    text-color: @fg;
+}
