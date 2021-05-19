@@ -1,0 +1,35 @@
+<eww>
+  <definitions>
+    <def name="bar" >
+      <box orientation="h" hexpand="true">
+        <workspace />
+      </box>
+    </def>
+
+    <def name="workspace">
+      <box class="workspace" orientation="h" halign="center">
+        <button class="{{if current_workspace == 1 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 1"></button>
+        <button class="{{if current_workspace == 2 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 2"></button>
+        <button class="{{if current_workspace == 3 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 3"></button>
+        <button class="{{if current_workspace == 4 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 4"></button>
+        <button class="{{if current_workspace == 5 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 5"></button>
+        <button class="{{if current_workspace == 6 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 6"></button>
+        <button class="{{if current_workspace == 7 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 7"></button>
+        <button class="{{if current_workspace == 8 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 8"></button>
+      </box>
+    </def>
+  </definitions>
+
+<variables>
+  <script-var name="current_workspace" interval="1ms">fctl workspace</script-var>
+</variables>
+
+ <windows>
+   <window name="bar-bottom" screen="0">
+    <geometry anchor="bottom center" width="98%" height="30px" y="-10px"/>
+    <widget>
+      <bar />
+    </widget>
+   </window>
+ </windows>
+</eww>

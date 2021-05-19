@@ -1,0 +1,41 @@
+// G L O B A L
+* {
+  all: unset;
+}
+
+window {
+  background-color: transparent;
+  color: #b0b4bc;
+  font-family: CascadiaCode;
+}
+
+// B A R
+.bar {
+  border-radius: 5px;
+  background: #16171e;
+}
+
+// W O R K S P A C E
+.workspace {
+  background: #0d1117;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.workspace__btn {
+  margin: 3px;
+  padding: 6px;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.workspace__btn:hover {
+  background: #00cecb;
+  color: #ffffff;
+}
+
+.workspace__btn--active {
+  @extend .workspace__btn;
+  background: #ffffff;
+  color: #0d1117;
+}
