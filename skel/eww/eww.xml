@@ -1,35 +1,99 @@
 <eww>
-  <definitions>
-    <def name="bar" >
-      <box orientation="h" hexpand="true">
-        <workspace />
-      </box>
-    </def>
+    <definitions>
+      <def name="bar-top" >
+        <box orientation="h" hexpand="true">
+          <system-user />
+          <system-info />
+          <system-module />
+        </box>
+      </def>
 
-    <def name="workspace">
-      <box class="workspace" orientation="h" halign="center">
-        <button class="{{if current_workspace == 1 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 1"></button>
-        <button class="{{if current_workspace == 2 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 2"></button>
-        <button class="{{if current_workspace == 3 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 3"></button>
-        <button class="{{if current_workspace == 4 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 4"></button>
-        <button class="{{if current_workspace == 5 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 5"></button>
-        <button class="{{if current_workspace == 6 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 6"></button>
-        <button class="{{if current_workspace == 7 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 7"></button>
-        <button class="{{if current_workspace == 8 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 8"></button>
-      </box>
-    </def>
-  </definitions>
+      <def name="bar-bottom" >
+        <box orientation="h" hexpand="true">
+          <workspace />
+        </box>
+      </def>
 
-<variables>
-  <script-var name="current_workspace" interval="1ms">fctl workspace</script-var>
-</variables>
+      <def name="workspace">
+        <box class="workspace" orientation="h" halign="center">
+          <button class="{{if current_workspace == 1 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 1"></button>
+          <button class="{{if current_workspace == 2 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 2"></button>
+          <button class="{{if current_workspace == 3 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 3"></button>
+          <button class="{{if current_workspace == 4 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 4"></button>
+          <button class="{{if current_workspace == 5 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 5"></button>
+          <button class="{{if current_workspace == 6 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 6"></button>
+          <button class="{{if current_workspace == 7 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 7"></button>
+          <button class="{{if current_workspace == 8 then 'workspace__btn--active' else 'workspace__btn'}}" onclick="fctl workspace -s 8"></button>
+        </box>
+      </def>
 
- <windows>
-   <window name="bar-bottom" screen="0">
-    <geometry anchor="bottom center" width="98%" height="30px" y="-10px"/>
-    <widget>
-      <bar />
-    </widget>
-   </window>
- </windows>
-</eww>
+      <def name="system-user">
+        <box class="system__user" halign="start" space-evenly="false">
+          <box class="system__icon">卑  {{hostname}}</box>
+          <button class="system__icon" onclick="timeout 10s kitty -e ranger $HOME">ﱮ</button>
+        </box>
+      </def>
+
+      <def name="system-info">
+        <box class="system__info" halign="center">
+          <box orientation="h" class="system__module" space-evenly="false">
+            <box class="system__module__label">﬙</box>
+            <scale min="0" active="false" max="101" value="{{cpu-stats}}"/>
+          </box>
+
+          <box orientation="h" class="system__module" space-evenly="false">
+            <box class="system__module__label">/</box>
+            <scale min="0" active="false" max="101" value="{{disk-stats}}"/>
+          </box>
+
+          <box orientation="h" class="system__module" space-evenly="false">
+            <box class="system__module__label"></box>
+            <scale min="0" active="false" max="101" value="{{ram-stats}}"/>
+          </box>
+        </box>
+      </def>
+
+      <def name="system-module">
+        <box class="system__module" halign="end" space-evenly="false">
+          <button class="system__icon"></button>
+          <button class="system__icon"></button>
+          <button class="system__icon" onclick="fctl print -a"></button>
+          <button class="system__icon">辶</button>
+          <button class="system__icon"></button>
+        </box>
+      </def>
+    </definitions>
+
+  <variables>
+    <script-var name="current_workspace" interval="1ms">fctl workspace -c</script-var>
+
+    <script-var name="day" interval="5h">date "+%d"</script-var>
+    <script-var name="month" interval="10h">date "+%b"</script-var>
+    <script-var name="min" interval="10s">date "+%M"</script-var>
+    <script-var name="hour" interval="1m">date "+%H"</script-var>
+    <script-var name="year" interval="15h">date "+%Y"</script-var>
+
+    <script-var name="ram-stats" interval="1s">fctl system -m</script-var>
+    <script-var name="cpu-stats" interval="1s">fctl system -c</script-var>
+    <script-var name="disk-stats" interval="1s">fctl system -d</script-var>
+
+    <script-var name="hostname" interval="1s">fctl system -h</script-var>
+  </variables>
+
+   <windows>
+     <window name="bar-top" screen="0">
+      <geometry anchor="top center" width="98%" height="30px" y="1%"/>
+      <widget>
+        <bar-top />
+      </widget>
+     </window>
+
+     <window name="bar-bottom" screen="0">
+      <geometry anchor="bottom center" width="98%" height="30px" y="1%"/>
+      <reserve side="top" distance="50%" layer="top"/>
+      <widget>
+        <bar-bottom />
+      </widget>
+     </window>
+   </windows>
+  </eww>
