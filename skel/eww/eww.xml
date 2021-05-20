@@ -29,8 +29,9 @@
 
       <def name="system-user">
         <box class="system__user" halign="start" space-evenly="false">
-          <box class="system__icon">卑  {{hostname}}</box>
-          <button class="system__icon" onclick="timeout 5s kitty -e ranger $HOME">ﱮ</button>
+          <box class="system__icon--pink">卑</box>
+          <box>{{hostname}}</box>
+          <button class="system__icon--yellow" onclick="timeout 5s kitty -e ranger $HOME">ﱮ</button>
         </box>
       </def>
 
@@ -55,11 +56,11 @@
 
       <def name="system-module">
         <box class="system__module" halign="end" space-evenly="false">
-          <button class="system__icon"></button>
-          <button class="system__icon"></button>
-          <button class="system__icon" onclick="timeout 5 fctl print -a"></button>
-          <button class="{{if record-stats == 'Recording' then 'system__icon--red' else 'system__icon'}}" onclick="timeout 5 fctl record -s">辶</button>
-          <button class="system__icon"></button>
+          <button  class="{{if internet-stats == 'connected' then 'system__icon--green' else 'system__icon--red'}}"></button>
+          <button class="{{if updates == 'yes' then 'system__icon--orange' else 'system__icon'}}"></button>
+          <button class="system__icon" onclick="timeout 5 fctl print -a"></button>
+          <button class="{{if record-stats == 'recording' then 'system__icon--red' else 'system__icon'}}" onclick="timeout 5 fctl record -s"></button>
+          <button class="system__icon--red"></button>
         </box>
       </def>
     </definitions>
@@ -76,10 +77,11 @@
     <script-var name="ram-stats" interval="1s">fctl system -m</script-var>
     <script-var name="cpu-stats" interval="1s">fctl system -c</script-var>
     <script-var name="disk-stats" interval="1s">fctl system -d</script-var>
+    <script-var name="internet-stats" interval="1s">fctl system -n</script-var>
+    <script-var name="hostname">fctl system -h</script-var>
+    <script-var name="updates" interval="1h">fctl system -u</script-var>
 
-    <script-var name="hostname" interval="1s">fctl system -h</script-var>
     <script-var name="record-stats" interval="1ms">fctl record -st</script-var>
-
   </variables>
 
    <windows>
