@@ -30,7 +30,7 @@
       <def name="system-user">
         <box class="system__user" halign="start" space-evenly="false">
           <box class="system__icon">卑  {{hostname}}</box>
-          <button class="system__icon" onclick="timeout 10s kitty -e ranger $HOME">ﱮ</button>
+          <button class="system__icon" onclick="timeout 5s kitty -e ranger $HOME">ﱮ</button>
         </box>
       </def>
 
@@ -57,8 +57,8 @@
         <box class="system__module" halign="end" space-evenly="false">
           <button class="system__icon"></button>
           <button class="system__icon"></button>
-          <button class="system__icon" onclick="fctl print -a"></button>
-          <button class="system__icon">辶</button>
+          <button class="system__icon" onclick="timeout 5 fctl print -a"></button>
+          <button class="{{if record-stats == 'Recording' then 'system__icon--red' else 'system__icon'}}" onclick="timeout 5 fctl record -s">辶</button>
           <button class="system__icon"></button>
         </box>
       </def>
@@ -78,6 +78,8 @@
     <script-var name="disk-stats" interval="1s">fctl system -d</script-var>
 
     <script-var name="hostname" interval="1s">fctl system -h</script-var>
+    <script-var name="record-stats" interval="1ms">fctl record -st</script-var>
+
   </variables>
 
    <windows>

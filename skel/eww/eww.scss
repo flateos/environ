@@ -4,6 +4,7 @@ $secondary-color: #00cecb;
 $white: #ffffff;
 $beige: #b0b4bc;
 $black: #000000;
+$red: #e84855;
 
 * {
     all: unset;
@@ -74,6 +75,11 @@ window {
     padding: 5px 12px;
     transition: 0.3s;
     margin: 0 2px;
+}
+
+.system__icon--red {
+    @extend .system__icon;
+    color: $red;
 }
 
 .system__icon:hover {
