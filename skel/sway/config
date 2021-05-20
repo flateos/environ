@@ -210,10 +210,8 @@ client.background       #ffffff
 #
 # S T A T U S    B A R
 #
-bar {
-    swaybar_command waybar
-    swaybar_command waybar
-}
+eww daemon
+eww open-many bar-bottom bar-top
 
 #
 # G A P S
@@ -222,6 +220,9 @@ default_border pixel 4
 default_floating_border pixel 4
 gaps inner 10
 gaps outer 10
-smart_gaps on
+gaps top 50
+gaps bottom 58
+gaps left 20
+gaps right 20
 
 include /etc/sway/config.d/*
