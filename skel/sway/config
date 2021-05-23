@@ -197,6 +197,11 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
+# W I D G E T S
+#
+exec fctl widget -o bar-top bar-bottom
+
+#
 # T H E M E
 #
 # class                 border      backgr.     text     indicator  child_border
@@ -206,12 +211,6 @@ client.unfocused        #22252f     #22252f     #22252f  #22252f    #22252f
 client.urgent           #e84855     #e84855     #ebdbb2  #e84855    #e84855
 client.placeholder      #000000     #0c0c0c     #ffffff  #000000    #0c0c0c
 client.background       #ffffff
-
-#
-# S T A T U S    B A R
-#
-eww daemon
-eww open-many bar-bottom bar-top
 
 #
 # G A P S
