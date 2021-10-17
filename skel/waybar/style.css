@@ -1,0 +1,83 @@
+/* D E F A U L T */
+* {
+  border: none;
+  border-radius: 0;
+  font-family: Roboto, "Font Awesome 5 Pro Solid", "Font Awesome 5 Brands";
+
+  min-height: 0;
+  font-weight: bolder;
+  font-size: 12px;
+}
+
+/* B A R */
+#waybar {
+  color: #ffffff;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+#waybar.top {
+  background-color: #1f2227;
+}
+
+#waybar.bottom {
+  background-color: #1f2227;
+}
+
+/* W O S K S P A C E S */
+#workspaces button {
+  padding: 5px;
+  margin: 5px;
+  box-shadow: none;
+}
+
+#workspaces button.visible {
+  color: #23d18c;
+  background-color: #1f3733;
+  border-radius: 5px;
+}
+
+#workspaces button:hover {
+  background-color: #303237;
+  border-radius: 5px;
+}
+
+/* T A S K B A R */
+#taskbar button {
+  border-radius: 5px;
+}
+
+/* C O M M O N */
+#clock,
+#cpu,
+#memory,
+#disk,
+#language,
+#tray,
+#taskbar,
+#pulseaudio,
+#custom-brand {
+  padding: 5px;
+  margin: 0px 8px;
+}
+
+/* T H E M E */
+#pulseaudio {
+  color: #f38375;
+}
+
+#custom-brand {
+  color: #ff5d8f;
+}
+
+#memory {
+  color: #ffe066;
+}
+
+#cpu {
+  color: #00cecb;
+}
+
+#disk {
+  color: #a29bfe;
+}
